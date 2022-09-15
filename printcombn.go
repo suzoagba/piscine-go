@@ -33,6 +33,7 @@ func my_check(p int) bool {
 	}
 	return true
 }
+
 func check_ok(p int) bool {
 	if p < 9 {
 		return true
@@ -53,6 +54,7 @@ func check_ok(p int) bool {
 		return true
 	}
 }
+
 func PrintCombN(n int) {
 	mx_ln := 1
 	for i := 2; i <= n; i++ {
