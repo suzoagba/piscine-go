@@ -68,7 +68,7 @@ func PrintCombN(n int) {
 			z01.PrintRune(' ')
 		}
 	}
-	for i := mx_ln; i <= mx_ln*9; i++ {
+	for i := mx_ln; i = 9; i++ {
 		if my_check(i) == true {
 			che(i)
 			if check_ok(i) == true {
