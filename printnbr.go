@@ -18,7 +18,6 @@ func checkit(v int) {
 		checkit(v / 10)
 	}
 	z01.PrintRune(c)
-	return
 }
 
 func PrintNbr(n int) {
