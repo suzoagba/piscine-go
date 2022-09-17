@@ -70,3 +70,7 @@ func quadC(x, y int) {
 		}
 	}
 }
+
+func main() {
+	quadC(5, 3)
+}
