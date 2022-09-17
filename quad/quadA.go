@@ -62,15 +62,11 @@ func quadC(x, y int) {
 			z01.PrintRune('C')
 
 			for i := 1; i < x-1; i++ {
-				z01.PrintRune('B') 
+				z01.PrintRune('B')
 			}
 			z01.PrintRune('C')
 			z01.PrintRune('\n')
 
 		}
 	}
-}
-
-func main() {
-	quadC(5, 3)
 }
