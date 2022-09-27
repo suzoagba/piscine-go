@@ -32,7 +32,6 @@ func main() {
 
 	for _, arg := range arguments {
 		file, err := os.Open(arg)
-
 		if err != nil {
 			for _, e := range err.Error() {
 				z01.PrintRune(e)
@@ -59,5 +58,4 @@ func main() {
 
 		file.Close()
 	}
-
 }
