@@ -14,6 +14,7 @@ func PrintList(l *piscine.List) {
 
 	fmt.Print(nil, "\n")
 }
+
 func main() {
 	link := &piscine.List{}
 	link2 := &piscine.List{}
