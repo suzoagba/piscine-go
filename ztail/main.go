@@ -29,11 +29,9 @@ func main() {
 		}
 	}
 	os.Exit(0)
-
 }
 
 func Atoi(s string) int {
-
 	runes := []rune(s)
 	LenRune := 0
 	result := 0
