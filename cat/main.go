@@ -1,61 +1,40 @@
 package main
 
 import (
-	"io/ioutil"
+	"io"
 	"os"
 
 	"github.com/01-edu/z01"
 )
 
+func PrintResult(str string) {
+	for _, val := range str {
+		z01.PrintRune(val)
+	}
+}
+func MyReadFile(fileName string) string {
+	content, err := os.ReadFile(fileName)
+	if err != nil {
+		return "error"
+	}
+	return string(content)
+}
 func main() {
-	arguments := os.Args[1:]
-	length := 0
-	for l := range arguments {
-		length = l + 1
+	args := os.Args[1:]
+	finish := false
+	for _, fileName := range args {
+		if _, err := os.Stat(fileName); err != nil {
+			PrintResult("ERROR: open " + fileName + ": no such file or directory\n")
+			os.Exit(1)
+			return
+		}
+		PrintResult(MyReadFile(fileName))
+		finish = true
 	}
-
-	if length == 0 {
-		input, err := ioutil.ReadAll(os.Stdin)
-		for _, j := range string(input) {
-			z01.PrintRune(j)
-		}
-		if err != nil {
-			for _, e := range err.Error() {
-				z01.PrintRune(e)
-			}
-			z01.PrintRune('\n')
-		}
-		return
-	}
-
-	first := true
-
-	for _, arg := range arguments {
-		file, err := os.Open(arg)
-		if err != nil {
-			for _, e := range err.Error() {
-				z01.PrintRune(e)
-			}
-			z01.PrintRune('\n')
-		}
-		return
-
-		f, err := ioutil.ReadAll(file)
-
-		if !first {
-			z01.PrintRune('\n')
-		}
-		first = false
-		for _, text := range string(f) {
-			z01.PrintRune(text)
-		}
-		if err != nil {
-			for _, e := range err.Error() {
-				z01.PrintRune(e)
-			}
-			z01.PrintRune('\n')
-		}
-
-		file.Close()
+	if !finish {
+		reader := io.TeeReader(os.Stdin, os.Stdout)
+		io.ReadAll(reader)
+		os.Stdin.Close()
+		os.Stdout.Close()
 	}
 }
