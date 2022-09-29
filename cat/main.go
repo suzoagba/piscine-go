@@ -12,6 +12,7 @@ func PrintResult(str string) {
 		z01.PrintRune(val)
 	}
 }
+
 func MyReadFile(fileName string) string {
 	content, err := os.ReadFile(fileName)
 	if err != nil {
@@ -19,6 +20,7 @@ func MyReadFile(fileName string) string {
 	}
 	return string(content)
 }
+
 func main() {
 	args := os.Args[1:]
 	finish := false
