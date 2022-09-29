@@ -5,15 +5,42 @@ import (
 	"piscine"
 )
 
+func PrintList(l *piscine.List) {
+	it := l.Head
+	for it != nil {
+		fmt.Print(it.Data, " -> ")
+		it = it.Next
+	}
+
+	fmt.Print(nil, "\n")
+}
 func main() {
 	link := &piscine.List{}
-	piscine.ListPushBack(link, "hello")
-	piscine.ListPushBack(link, "hello1")
-	piscine.ListPushBack(link, "hello2")
-	piscine.ListPushBack(link, "hello3")
+	link2 := &piscine.List{}
 
-	found := piscine.ListFind(link, interface{}("hello2"), piscine.CompStr)
+	fmt.Println("----normal state----")
+	piscine.ListPushBack(link2, 1)
+	PrintList(link2)
+	piscine.ListRemoveIf(link2, 1)
+	fmt.Println("------answer-----")
+	PrintList(link2)
+	fmt.Println()
 
-	fmt.Println(found)
-	fmt.Println(*found)
+	fmt.Println("----normal state----")
+	piscine.ListPushBack(link, 1)
+	piscine.ListPushBack(link, "Hello")
+	piscine.ListPushBack(link, 1)
+	piscine.ListPushBack(link, "There")
+	piscine.ListPushBack(link, 1)
+	piscine.ListPushBack(link, 1)
+	piscine.ListPushBack(link, "How")
+	piscine.ListPushBack(link, 1)
+	piscine.ListPushBack(link, "are")
+	piscine.ListPushBack(link, "you")
+	piscine.ListPushBack(link, 1)
+	PrintList(link)
+
+	piscine.ListRemoveIf(link, 1)
+	fmt.Println("------answer-----")
+	PrintList(link)
 }
