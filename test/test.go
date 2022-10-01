@@ -29,7 +29,6 @@ func listPushBack(l *piscine.NodeI, data int) *piscine.NodeI {
 }
 
 func main() {
-
 	var link *piscine.NodeI
 	var link2 *piscine.NodeI
 
