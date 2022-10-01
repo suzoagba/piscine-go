@@ -29,14 +29,16 @@ func listPushBack(l *piscine.NodeI, data int) *piscine.NodeI {
 }
 
 func main() {
+
 	var link *piscine.NodeI
-	link = listPushBack(link, 1)
-	link = listPushBack(link, 4)
-	link = listPushBack(link, 9)
+	var link2 *piscine.NodeI
 
-	PrintList(link)
+	link = listPushBack(link, 3)
+	link = listPushBack(link, 5)
+	link = listPushBack(link, 7)
 
-	link = piscine.SortListInsert(link, -2)
-	link = piscine.SortListInsert(link, 2)
-	PrintList(link)
+	link2 = listPushBack(link2, -2)
+	link2 = listPushBack(link2, 9)
+
+	PrintList(piscine.SortedListMerge(link2, link))
 }
